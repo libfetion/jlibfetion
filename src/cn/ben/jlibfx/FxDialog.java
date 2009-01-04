@@ -7,14 +7,14 @@ package cn.ben.jlibfx;
  */
 public interface FxDialog {
     /**
-     * 注册服务器消息监听器,如果 listener 为 null,则不抛出任何异常,且不执行任何操作<br />
+     * 注册服务器消息监听器. 如果 listener 为 null,则不抛出任何异常,且不执行任何操作<br />
      * 监听器将用于处理所有Dialog接收到的好友即时消息
      * @see MessageListener
      * @param listener {@link MessageListener 消息监听器}
      */
     public void addDialogMsgListener(MessageListener listener);
     /**
-     * 移除服务器消息监听器,如果 listener 为 null,则不抛出任何异常,且不执行任何操作。
+     * 移除服务器消息监听器. 如果 listener 为 null,则不抛出任何异常,且不执行任何操作。
      * @see MessageListener
      * @param listener {@link MessageListener 消息监听器}
      */

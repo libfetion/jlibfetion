@@ -6,13 +6,13 @@ package cn.ben.jlibfx;
  */
 public interface FxAccount {
     /**
-     * 返回Fetion号,如无 Fetion 号(尚未注册 Fetion 业务)则可以选择使用 {@link #getMobileNumber() 手机号码} 进行联系
+     * 返回Fetion号. 如无 Fetion 号(尚未注册 Fetion 业务)则可以选择使用 {@link #getMobileNumber() 手机号码} 进行联系
      * @see #getMobileNumber()
      * @return 返回该账户的 Fetion 号,如果该帐户未开通 Fetion 业务则返回null
      */
     public String getFetionNumber();
     /**
-     * 返回帐户手机号,如帐号设置保密手机号则可以选择使用 {@link #getFetionNumber() Fetion号} 进行联系
+     * 返回帐户手机号. 如帐号设置保密手机号则可以选择使用 {@link #getFetionNumber() Fetion号} 进行联系
      * @see #getFetionNumber()
      * @return 返回该账户的移动手机号,如果该账户设置保密手机号则返回 null
      */
@@ -85,6 +85,6 @@ public interface FxAccount {
         /** 在线状态 */
         ONLINE,
         /** 自定义状态 */
-        CUSTOM
+        CUSTOM;
     }
 }
