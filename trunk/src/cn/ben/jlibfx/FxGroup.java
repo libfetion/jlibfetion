@@ -1,6 +1,8 @@
 
 package cn.ben.jlibfx;
 
+import java.util.Iterator;
+
 /**
  * 组接口,jLibFx中的好友组和群组必须直接或间接继承本接口
  * @author Ben.Pang
@@ -57,7 +59,7 @@ public interface FxGroup {
      * @see FxAccount
      * @return 迭代组中所有 {@link FxAccount Fetion 帐户}的迭代器
      */
-    public Iterable<FxAccount> iterator();
+    public Iterator<FxAccount> iterator();
     /**
      * 返回组中的元素数（其容量).
      * @return 组中的元素数
