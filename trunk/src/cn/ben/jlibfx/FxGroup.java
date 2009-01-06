@@ -11,23 +11,29 @@ public interface FxGroup {
     /**
      * 注册组消息监听器. 如果 {@link MessageListener listener} 为 null，则不抛出任何异常，且不执行任何操作。
      * @see MessageListener
+     * @see #getGroupMsgListener()
+     * @see #removeGroupMsgListener(cn.ben.jlibfx.MessageListener)
      * @param listener {@link MessageListener 组消息监听器}
      */
     public void addGroupMsgListener(MessageListener listener);
     /**
      * 移除组消息监听器. 如果 {@link MessageListener 组消息监听器} 为 null，则不抛出任何异常，且不执行任何操作。
      * @see MessageListener
+     * @see #addGroupMsgListener(cn.ben.jlibfx.MessageListener)
+     * @see #removeGroupMsgListener(cn.ben.jlibfx.MessageListener)
      * @param listener {@link MessageListener 组消息监听器}
      */
     public void removeGroupMsgListener(MessageListener listener);
     /**
      * 返回此组对象注册过的所有监听器的数组
      * @see MessageListener
+     * @see #addGroupMsgListener(cn.ben.jlibfx.MessageListener)
+     * @see #getGroupMsgListener()
      * @return {@link MessageListener 组消息监听器}数组
      */
     public MessageListener[] getGroupMsgListener();
     /**
-     * 向组里添加新好友. 如果该组中已经存在相同帐户好友或该帐户为本地登录帐户则不执行任何操作
+     * 向组里添加新好友.
      * @see FxAccount
      * @param account 需要加入组中的 {@link FxAccount Fetion 帐户}
      * @throws cn.ben.jlibfx.FxException
@@ -42,7 +48,7 @@ public interface FxGroup {
      */
     public FxAccount get(int index) throws IndexOutOfBoundsException;
     /**
-     * 从组中删除指定 {@link FxAccount Fetion 帐户},如果不存在该帐户则引发操作异常
+     * 从组中删除指定 {@link FxAccount Fetion 帐户}
      * @param account 将从组中删除的 {@link FxAccount Fetion 帐户}
      * @throws cn.ben.jlibfx.FxException
      */
