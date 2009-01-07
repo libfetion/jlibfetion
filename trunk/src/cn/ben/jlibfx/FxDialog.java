@@ -38,8 +38,8 @@ public interface FxDialog {
      */
     public void send(FxMessage msg) throws FxException;
     /**
-     * 发送 {SMS(手机短信)消息}
-     * @param msg {SMS(手机短信)消息}
+     * 发送 {@link FxMessage SMS(手机短信)消息}
+     * @param msg {@link FxMessage SMS(手机短信)消息}
      * @throws cn.ben.jlibfx.FxException
      */
     public void sendSMS(FxMessage msg) throws FxException;
