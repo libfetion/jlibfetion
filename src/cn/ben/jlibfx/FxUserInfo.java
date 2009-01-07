@@ -10,13 +10,13 @@ import java.sql.Timestamp;
  * int  lunar_animal 和 char *  profile 还有 char * job_title 和 int match_enabled() 不清楚参数是用来干什么的
  * @author Ben.Pang
  */
-public interface FxUserInfo {
-    /**
-     * 返回用户昵称,用户昵称为非 null 和非 empty 的字符串
-     * @see #setNickname(java.lang.String)
-     * @return 用户昵称
-     */
-    public String getNickname();
+public interface FxUserInfo extends FxAccount {
+//    /**
+//     * 返回用户昵称,用户昵称为非 null 和非 empty 的字符串
+//     * @see #setNickname(java.lang.String)
+//     * @return 用户昵称
+//     */
+//    public String getNickname();
     /**
      * 设置用户昵称信息,用户昵称必须为非 null 和非 empty,否则将不会执行任何操作
      * @param name 用户昵称
@@ -42,8 +42,8 @@ public interface FxUserInfo {
     public Gender getGender();
     /**
      * 设置用户性别信息(枚举)
-     * @see Sex
-     * @param sex 用户性别
+     * @see Gender
+     * @param gender 用户性别
      * @throws cn.ben.jlibfx.FxException 如果尝试修改非本地帐号的用户信息将引发异常
      */
     public void setGender(Gender gender) throws FxException;
@@ -91,11 +91,11 @@ public interface FxUserInfo {
      * @throws cn.ben.jlibfx.FxException 如果尝试修改非本地帐号的用户信息将引发异常
      */
     public void setPortrait(Image image) throws FxException;
-    /**
-     * 获得用户手机号信息,如果不是本地帐户且对方设置密码手机号选项则返回 null
-     * @return 手机号,如果对方设置密码选择则返回 null
-     */
-    public String getMobileNumber();
+//    /**
+//     * 获得用户手机号信息,如果不是本地帐户且对方设置密码手机号选项则返回 null
+//     * @return 手机号,如果对方设置密码选择则返回 null
+//     */
+//    public String getMobileNumber();
     /**
      * 返回用户真实姓名信息,可能返回 null 当用户未设置该信息时
      * @return 用户姓名

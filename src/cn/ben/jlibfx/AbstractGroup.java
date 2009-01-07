@@ -10,9 +10,9 @@ import java.util.Iterator;
  */
 public abstract class AbstractGroup implements FxGroup {
     /** accounts list */
-    protected ArrayList<FxAccount> accounts;
+    private ArrayList<FxAccount> accounts;
     /** 组名 */
-    protected String name;
+    private String name;
     
     /**
      * 传入组名并构造一个新组
@@ -48,7 +48,8 @@ public abstract class AbstractGroup implements FxGroup {
      * @throws cn.ben.jlibfx.FxException
      */
     public void remove(FxAccount account) throws FxException {
-        accounts.remove(account);
+        if(account != null)
+            accounts.remove(account);
     }
     /**
      * 搜索 {@link FxAccount Fetion 帐户} 在组中的索引编号. 如果该组中不存在该帐户则返回-1
