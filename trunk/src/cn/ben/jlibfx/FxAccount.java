@@ -57,7 +57,7 @@ public interface FxAccount {
     public String getTerminal();
 
     /**
-     * 帐户状态信息(有些libfetion里的参数尚不了解,待解决)<br/>
+     * 帐户状态信息(有些libfetion里的参数尚不了解,待解决). <br/>
      * 问题:<br/>
      * 1.UNSET状态是什么意思?什么时候会有这个状态<br/>
      * 2.FX_STATUS_MOBILE是说明用户的终端类型吗?<br/>

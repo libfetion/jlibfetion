@@ -5,7 +5,7 @@ import java.awt.Image;
 import java.sql.Timestamp;
 
 /**
- * Fetion 用户信息接口 <br/>
+ * Fetion 用户信息接口. <br/>
  * 方法 {@link #getPortrait()} 不是很理解<br/>
  * int  lunar_animal 和 char *  profile 还有 char * job_title 和 int match_enabled() 不清楚参数是用来干什么的
  * @author Ben.Pang

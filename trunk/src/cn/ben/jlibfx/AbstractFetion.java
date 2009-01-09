@@ -9,15 +9,12 @@ import java.util.ArrayList;
  * Java Fetion 实现类
  * @author Ben.Pang
  */
-public class JFetion {
-    /**
-     * 本地帐户引用
-     */
-    private FxAccount localAccount;
-    private ArrayList<ServerMsgListener> listeners;
-    private FxGroupsManager buddyGroups;
-    private FxGroupsManager groups;
-    private FxGroup blackListGroup;
+public abstract class AbstractFetion implements FxFetion {
+    protected FxAccount localAccount;                       // 本地帐户
+    protected ArrayList<ServerMsgListener> listeners;       // 服务器消息监听器
+    protected FxGroupsManager buddyGroups;                  // 好友组管理器
+    protected FxGroupsManager groups;                       // 群组管理器
+    protected FxGroup blackListGroup;                       // 黑名单
 
     /**
      * 注册服务器消息监听器. 如果 listener 为 null,则不抛出任何异常且不执行任何操作。
@@ -34,9 +31,8 @@ public class JFetion {
      * @return 监听器数组
      */
     public synchronized ServerMsgListener[] getServerMsgListeners() {
-        // 建立数组
+        // 建立空数组
         ServerMsgListener[] arrays = (ServerMsgListener[]) Array.newInstance(ServerMsgListener.class, listeners.size());
-        ServerMsgListener listener = null;
         for ( int i = 0; i<listeners.size(); i++ ) {
             arrays[i] = listeners.get(i);
         }
@@ -92,33 +88,25 @@ public class JFetion {
         localAccount.setStatus(status);
     }
     /**
-     * 使用帐号和密码登录Fetion Server
-     * @param account {@link FxAccount#getMobileNumber() 手机号} 或 {@link FxAccount#getFetionNumber() Fetion 号}
-     * @param password 登录密码
-     * @return 登录结果
+     * 开启一个新的 {@link FxDialog 即时信息对话}
+     * @see FxDialog
+     * @param account {@link FxDialog 即时信息对话}
+     * @return {@link FxDialog 即时信息对话}
+     * @throws cn.ben.jlibfx.FxException
      */
-    public boolean login(String account, String password) {
-    }
+    protected abstract FxDialog beginDialog(FxAccount account) throws FxException;
     /**
-     * 使用帐号和密码登录Fetion Server, 并设置成功登录后 {@link FxStatus 状态}
-     * @param account {@link FxAccount#getMobileNumber() 手机号} 或 {@link FxAccount#getFetionNumber() Fetion 号}
-     * @param password 登录密码
-     * @param status 登录后 {@link FxStatus 状态}
-     * @return 登录结果
+     * 开启一个新的 {@link FxDialog 组即时信息对话}
+     * @see FxDialog
+     * @param group {@link FxDialog 组即时信息对话}
+     * @return {@link FxDialog 组即时信息对话}
+     * @throws cn.ben.jlibfx.FxException
      */
-    public boolean login(String account, String password, FxStatus status) {
-    }
+    protected abstract FxDialog beginDialog(FxGroup group) throws FxException;
     /**
-     * 注销登陆
+     *  结束 {@link FxDialog 即时信息对话}
+     * @param dialog {@link FxDialog 组即时信息对话}
+     * @throws cn.ben.jlibfx.FxException
      */
-    public void logout() {
-        
-    }
-    /**
-     * 返回本地账号的 {@link FxUserInfo}
-     * @see FxUserInfo
-     * @return 本地帐号的 {@link FxUserInfo}
-     */
-    public FxUserInfo getSelfUserInfo() {
-    }
+    protected abstract void endDialog(FxDialog dialog) throws FxException;
 }
