@@ -10,13 +10,31 @@ import java.sql.Timestamp;
  * int  lunar_animal 和 char *  profile 还有 char * job_title 和 int match_enabled() 不清楚参数是用来干什么的
  * @author Ben.Pang
  */
-public interface FxUserInfo extends FxAccount {
-//    /**
-//     * 返回用户昵称,用户昵称为非 null 和非 empty 的字符串
-//     * @see #setNickname(java.lang.String)
-//     * @return 用户昵称
-//     */
-//    public String getNickname();
+public interface FxUserInfo {
+    /**
+     * 返回Fetion号. 如无 Fetion 号(尚未注册 Fetion 业务)则可以选择使用 {@link #getMobileNumber() 手机号码} 进行联系
+     * @see #getMobileNumber()
+     * @return 返回该账户的 Fetion 号,如果该帐户未开通 Fetion 业务则返回null
+     */
+    public String getFetionNumber();
+    /**
+     * 返回帐户手机号. 如帐号设置保密手机号则可以选择使用 {@link #getFetionNumber() Fetion号} 进行联系
+     * @see #getFetionNumber()
+     * @return 返回该账户的移动手机号,如果该账户设置保密手机号则返回 null
+     */
+    public String getMobileNumber();
+    /**
+     * 返回账户本地屏显名
+     * @see #setLocalname(String)
+     * @return 返回该帐户的本地屏显名,默认返回用户 {@link #getNickname() 昵称}
+     */
+    public String getLocalname();
+    /**
+     * 返回用户昵称,用户昵称为非 null 和非 empty 的字符串
+     * @see #setNickname(java.lang.String)
+     * @return 用户昵称
+     */
+    public String getNickname();
     /**
      * 设置用户昵称信息,用户昵称必须为非 null 和非 empty,否则将不会执行任何操作
      * @param name 用户昵称

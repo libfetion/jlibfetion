@@ -90,4 +90,36 @@ public interface FxFetion {
      * 登出(注销) Fetion Server
      */
     public void logout() throws FxException;
+    /**
+     * 开启一个新的 {@link FxDialog 即时信息对话}
+     * @see FxDialog
+     * @see FxAccount
+     * @param account {@link FxAccount 好友帐户}
+     * @return {@link FxDialog 即时信息对话}
+     * @throws cn.ben.jlibfx.FxException
+     */
+    public FxDialog beginDialog(FxAccount account) throws FxException;
+    /**
+     * 开启一个新的 {@link FxDialog 即时信息对话}
+     * @see FxDialog
+     * @see FxAccount
+     * @param accounts {@link FxAccount 好友帐户} 数组
+     * @return {@link FxDialog 即时信息对话}
+     * @throws cn.ben.jlibfx.FxException
+     */
+    public FxDialog beginDialog(FxAccount[] accounts) throws FxException;
+    /**
+     * 开启一个新的 {@link FxDialog 组即时信息对话}
+     * @see FxDialog
+     * @param group {@link FxGroup 好友组}
+     * @return {@link FxDialog 组即时信息对话}
+     * @throws cn.ben.jlibfx.FxException
+     */
+    public FxDialog beginDialog(FxGroup group) throws FxException;
+    /**
+     * 结束 {@link FxDialog 即时信息对话}
+     * @param dialog {@link FxDialog 组即时信息对话}
+     * @throws cn.ben.jlibfx.FxException
+     */
+    public void endDialog(FxDialog dialog) throws FxException;
 }
