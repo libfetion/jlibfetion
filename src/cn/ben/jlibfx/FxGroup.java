@@ -11,7 +11,7 @@ public interface FxGroup {
     /**
      * 注册组消息监听器. 如果 {@link MessageListener listener} 为 null，则不抛出任何异常，且不执行任何操作。
      * @see MessageListener
-     * @see #getGroupMsgListener()
+     * @see #getGroupMsgListeners()
      * @see #removeGroupMsgListener(cn.ben.jlibfx.MessageListener)
      * @param listener {@link MessageListener 组消息监听器}
      */
@@ -28,10 +28,10 @@ public interface FxGroup {
      * 返回此组对象注册过的所有监听器的数组
      * @see MessageListener
      * @see #addGroupMsgListener(cn.ben.jlibfx.MessageListener)
-     * @see #getGroupMsgListener()
+     * @see #getGroupMsgListeners()
      * @return {@link MessageListener 组消息监听器}数组
      */
-    public MessageListener[] getGroupMsgListener();
+    public MessageListener[] getGroupMsgListeners();
     /**
      * 向组里添加新好友.
      * @see FxAccount

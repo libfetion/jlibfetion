@@ -2,7 +2,7 @@
 package cn.ben.jlibfx;
 
 /**
- * jLIbFx消息监听器基准接口,所有消息侦听器必须直接或间接继承此接口
+ * jLIbFx 即时消息监听器基准接口,所有即时消息侦听器必须直接或间接继承此接口
  * @author Ben.Pang
  */
 public interface MessageListener extends java.util.EventListener {
