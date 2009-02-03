@@ -30,6 +30,12 @@ public interface FxUserInfo {
      */
     public String getLocalname();
     /**
+     * 设置本地屏显名
+     * @see #getLocalname()
+     * @param localname 本地屏显名,如果传入 null 或 empty 则不执行任何操作
+     */
+    public void setLocalname(String localname);
+    /**
      * 返回用户昵称,用户昵称为非 null 和非 empty 的字符串
      * @see #setNickname(java.lang.String)
      * @return 用户昵称

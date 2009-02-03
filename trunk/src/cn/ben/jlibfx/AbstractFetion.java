@@ -2,6 +2,7 @@
 package cn.ben.jlibfx;
 
 import cn.ben.jlibfx.FxAccount.FxStatus;
+import cn.ben.jlibfx.util.ListenersManager;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  */
 public abstract class AbstractFetion implements FxFetion {
     private FxAccount localAccount;                         // 本地帐户
-    private ArrayList<ServerMsgListener> listeners;         // 服务器消息监听器
+    private ListenersManager<ServerMsgListener> listeners;  // 服务器消息监听器
     private FxGroupsManager buddyGroups;                    // 好友组管理器
     private FxGroupsManager groups;                         // 群组管理器
     private FxGroup blackListGroup;                         // 黑名单
@@ -22,8 +23,7 @@ public abstract class AbstractFetion implements FxFetion {
      * @param listener 消息监听器
      */
     public synchronized void addServerMsgListener(ServerMsgListener listener) {
-        if( listener != null && !listeners.contains(listener) )
-            listeners.add(listener);
+        listeners.addListener(listener);
     }
     /**
      * 返回已经注册的服务器消息监听器数组. 如果尚未注册任何监听器则返回空数组.
@@ -31,12 +31,7 @@ public abstract class AbstractFetion implements FxFetion {
      * @return 监听器数组
      */
     public synchronized ServerMsgListener[] getServerMsgListeners() {
-        // 建立空数组
-        ServerMsgListener[] arrays = (ServerMsgListener[]) Array.newInstance(ServerMsgListener.class, listeners.size());
-        for ( int i = 0; i<listeners.size(); i++ ) {
-            arrays[i] = listeners.get(i);
-        }
-        return arrays;
+        return listeners.getListeners(ServerMsgListener.class);
     }
     /**
      * 移除服务器消息监听器. 如果 listener 为 null,则不抛出任何异常且不执行任何操作.
@@ -44,8 +39,7 @@ public abstract class AbstractFetion implements FxFetion {
      * @param listener 将被移除的服务器消息监听器
      */
     public synchronized void removeServerMsgListener(ServerMsgListener listener) {
-        if( listener != null )
-            listeners.remove(listener);
+        listeners.removeListener(listener);
     }
     /**
      * 返回好友组管理器
