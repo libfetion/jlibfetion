@@ -37,6 +37,11 @@ public interface FxAccount {
      */
     public String getNickname();
     /**
+     * 设置该帐户的用户昵称
+     * @param nickname 用户昵称
+     */
+    public void setNickname(String nickname);
+    /**
      * 返回该账户的状态信息
      * @see FxStatus
      * @return 帐户状态信息,枚举{@link FxStatus 帐户状态}
