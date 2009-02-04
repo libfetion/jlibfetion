@@ -13,6 +13,7 @@ class AccountImpl implements FxAccount {
     private String nickname;
     private FxStatus status;
     private String terminal;
+    private FetionImpl fetion;
 
     /**
      * 账户ID,只用于本地标识不同的用户,不同的帐户使用不同的帐户ID
@@ -73,8 +74,9 @@ class AccountImpl implements FxAccount {
      * @param name 设置该帐户的本地屏显名
      * @throws cn.ben.jlibfx.FxException
      */
-    public void setLocalname(String localname) {
+    public void setLocalname(String localname) throws FxException {
         if (localname != null && !localname.isEmpty())
+            fetion.setLocalname(this, localname);
             this.localname = localname;
     }
     /**
@@ -89,7 +91,7 @@ class AccountImpl implements FxAccount {
      * 设置该帐户的用户昵称
      * @param nickname 用户昵称
      */
-    public void setNickname(String nickname) {
+    public void setNickname(String nickname) throws FxException {
         this.nickname = nickname;
     }
     /**
@@ -101,13 +103,15 @@ class AccountImpl implements FxAccount {
         return status;
     }
     /**
-     * 设置该帐户的状态信息
+     * 设置该帐户的状态信息,如果传入 null 则不执行任何操作
      * @param status 帐户状态信息,枚举 {@link FxStatus 帐户状态}
      * @see FxStatus
      * @throws cn.ben.jlibfx.FxException
      */
-    public void setStatus(FxStatus status) {
-        this.status = status;
+    public void setStatus(FxStatus status) throws FxException {
+        if (status != null)
+            fetion.setStatus(this,status);
+            this.status = status;
     }
     /**
      * 返回该帐户的终端类型<br/>

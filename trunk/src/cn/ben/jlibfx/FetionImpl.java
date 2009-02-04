@@ -61,4 +61,20 @@ class FetionImpl extends AbstractFetion {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
+    void send(FxMessage msg) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    void sendSMS(FxMessage msg) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    void setLocalname(AccountImpl aThis, String localname) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    void setStatus(AccountImpl aThis, FxStatus status) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
 }
