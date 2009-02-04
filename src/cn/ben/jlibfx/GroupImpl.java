@@ -79,6 +79,6 @@ class GroupImpl extends AbstractGroup {
      */
     @Override
     public void setName(String name) throws FxException {
-        throw new FxUnsupportedException(this.getClass().getCanonicalName(),"setName");
+        throw new FxUnsupportedException();
     }
 }

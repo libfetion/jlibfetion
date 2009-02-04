@@ -4,7 +4,7 @@ package cn.ben.jlibfx;
 import cn.ben.jlibfx.util.ListenersManager;
 
 /**
- *
+ * 即时消息对话抽象类,实现与底层无关的代码
  * @author Ben.Pang
  */
 public abstract class AbstractDialog implements FxDialog {

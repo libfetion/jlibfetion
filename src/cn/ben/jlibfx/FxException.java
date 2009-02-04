@@ -7,6 +7,12 @@ package cn.ben.jlibfx;
  */
 public abstract class FxException extends Exception {
     /**
+     * 构造一个新的异常
+     */
+    public FxException() {
+        super();
+    }
+    /**
      * 传入异常说明信息
      * @param message  异常说明信息
      */
