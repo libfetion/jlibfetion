@@ -3,8 +3,6 @@ package cn.ben.jlibfx;
 
 import cn.ben.jlibfx.FxAccount.FxStatus;
 import cn.ben.jlibfx.util.ListenersManager;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 /**
  * Java Fetion 实现类
