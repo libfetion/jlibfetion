@@ -1,0 +1,11 @@
+#Analyze log of Fetion 2010 Protocol
+
+= Fetion 2010 Protocol Analyze log =
+
+It seams that Fetion 2010 has change the protocol about authentication.
+
+= Details =
+
+  * URL has been changed
+  * 
+  * 
